@@ -1,5 +1,5 @@
+pass=getSessionID();
 function windowOpen(){
-    pass=getSessionID();
     appID="692002588903233";
     redirectURI="https://abhishekkamat.github.io/LogInFB/redirect.html";
     OGURL="https://www.facebook.com/v13.0/dialog/oauth?client_id={"+appID+"}&redirect_uri={"+redirectURI+"}&state={"+pass+"}";
