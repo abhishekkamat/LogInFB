@@ -1,6 +1,6 @@
 function windowOpen(){
     pass=getSessionID();
-    appID="489702302849005";
+    appID="692002588903233";
     redirectURI="https://www.facebook.com/connect/login_success.html";
     OGURL="https://www.facebook.com/v13.0/dialog/oauth?client_id={"+appID+"}&redirect_uri={"+redirectURI+"}&state={"+pass+"}";
     window.open(OGURL, "Log Into Facebook","width=500, height=500, left=200, top=50");
