@@ -19,7 +19,8 @@ function getAccessToken(){
     token.onload=function(){
         if(token.status===200){
             AccessToken=JSON.parse(token.responseText);
-            console.log(AccessToken);
+            sessionStorage.setItem("access_token",AccessToken);
+            console.log(sessionStorage.getItem("access_token"));
         }
         else if(token.status===404){
             console.log("No Records Found");
