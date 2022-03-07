@@ -2,7 +2,7 @@ pass=getSessionID();
 appID="692002588903233";
 redirectURI="https://abhishekkamat.github.io/LogInFB/redirect.html";
 function windowOpen(){
-    OGURL="https://www.facebook.com/v13.0/dialog/oauth?client_id="+appID+"&redirect_uri="+redirectURI+"&state="+pass;
+    OGURL="https://www.facebook.com/v13.0/dialog/oauth?client_id="+appID+"&redirect_uri="+redirectURI+"&state="+pass+"&scope=email,public_profile";
     window.open(OGURL, "Log Into Facebook","width=500, height=500, left=200, top=50");
 }
 
@@ -11,7 +11,7 @@ function getAccessToken(){
     notCode=window.location.href;
     code=notCode.slice(59);
     secret="8475706848c91218749a358ea6344aa3";
-    goTo="https://graph.facebook.com/v13.0/oauth/access_token?client_id="+appID+"&redirect_uri="+redirectURI+"&client_secret="+secret+"&code="+code+"&scope=email,public_profile";
+    goTo="https://graph.facebook.com/v13.0/oauth/access_token?client_id="+appID+"&redirect_uri="+redirectURI+"&client_secret="+secret+"&code="+code;
     const token=new XMLHttpRequest();
     token.open("GET", goTo);
     token.send();
