@@ -32,6 +32,7 @@ function getAccessToken(){
 
 function getPermissions(){
     getPerms="/"+AccessToken+"}/permissions";
+    console.log(getPerms);
     const perms=new XMLHttpRequest();
     perms.open("GET", getPerms);
     perms.send();
