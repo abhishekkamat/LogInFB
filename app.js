@@ -11,7 +11,7 @@ function getAccessToken(){
     notCode=window.location.href;
     code=notCode.slice(59);
     secret="8475706848c91218749a358ea6344aa3";
-    goTo="https://graph.facebook.com/v13.0/oauth/access_token?client_id="+appID+"&redirect_uri="+redirectURI+"&client_secret="+secret+"&code="+code;
+    goTo="https://graph.facebook.com/v13.0/oauth/access_token?client_id="+appID+"&redirect_uri="+redirectURI+"&client_secret="+secret+"&code="+code+"&scope=email,public_profile";
     const token=new XMLHttpRequest();
     token.open("GET", goTo);
     token.send();
@@ -30,24 +30,7 @@ function getAccessToken(){
     
 }
 
-function getPermissions(){
-    getPerms="/"+AccessToken+"}/permissions";
-    console.log(getPerms);
-    const perms=new XMLHttpRequest();
-    perms.open("GET", getPerms);
-    perms.send();
 
-    perms.onload=function(){
-        if(perms.status===200){
-            PermsObj=JSON.parse(perms.responseText);
-            console.log(PermsObj);
-        }
-        else if(perms.status===404){
-            console.log("No Records Found");
-        }
-    }
-
-}
 
 function hashing(string) {
     //set variable hash as 0
