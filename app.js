@@ -41,7 +41,7 @@ function getPermissions(){
             PermsObj=JSON.parse(perms.responseText);
             console.log(PermsObj);
         }
-        else if(token.status===404){
+        else if(perms.status===404){
             console.log("No Records Found");
         }
     }
