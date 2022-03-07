@@ -6,13 +6,13 @@ function windowOpen(){
     window.open(OGURL, "Log Into Facebook","width=500, height=500, left=200, top=50");
 }
 
+//This function needs to be in the server side code
 function getAccessToken(){
     notCode=window.location.href;
     code=notCode.slice(59);
     secret="8475706848c91218749a358ea6344aa3";
     goTo="https://graph.facebook.com/v13.0/oauth/access_token?client_id="+appID+"&redirect_uri="+redirectURI+"&client_secret="+secret+"&code="+code;
     const token=new XMLHttpRequest();
-    console.log(goTo);
     token.open("GET", goTo);
     token.send();
 
@@ -28,6 +28,24 @@ function getAccessToken(){
         }
     }
     
+}
+
+function getPermissions(){
+    getPerms="GET /"+AccessToken+"}/permissions"
+    const perms=new XMLHttpRequest();
+    perms.open("GET", getPerms);
+    perms.send();
+
+    perms.onload=function(){
+        if(perms.status===200){
+            PermsObj=JSON.parse(perms.responseText);
+            console.log(PermsObj);
+        }
+        else if(token.status===404){
+            console.log("No Records Found");
+        }
+    }
+
 }
 
 function hashing(string) {
