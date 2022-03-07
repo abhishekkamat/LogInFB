@@ -18,7 +18,8 @@ function getAccessToken(){
 
     token.onload=function(){
         if(token.status===200){
-            AccessToken=JSON.parse(token.responseText);
+            AccessObj=JSON.parse(token.responseText);
+            AccessToken=AccessObj["access_token"];
             sessionStorage.setItem("access_token",AccessToken);
             console.log(sessionStorage.getItem("access_token"));
         }
