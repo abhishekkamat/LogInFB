@@ -23,7 +23,7 @@ function getUserID(acc_token){
         }
     }
     
-    return USERObj;
+    return userID;
     
 
     
