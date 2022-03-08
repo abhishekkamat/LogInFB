@@ -16,7 +16,7 @@ function getUserID(acc_token){
     userID.onload=function(){
         if(userID.status===200){
             USERObj=JSON.parse(userID.responseText);
-            USERID=USERobj["id"];
+            USERID=USERObj["id"];
             sessionStorage.setItem("user_ID",USERID);
             return USERID;
         }
