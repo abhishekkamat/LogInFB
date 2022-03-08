@@ -8,7 +8,7 @@ function windowOpen(){
 
 
 function getUserID(acc_token){
-    goToURL="https://graph.facebook.com/me?access_token="+acc_token;
+    goToURL="https://graph.facebook.com/me?fields=id&access_token="+acc_token;
     const userID=new XMLHttpRequest();
     userID.open("GET", goToURL);
     userID.send();
