@@ -29,7 +29,7 @@ function getUserID(acc_token){
     
 }
 
-acc_token=""
+
 //This function needs to be in the server side code
 function getAccessToken(){
     notCode=window.location.href;
@@ -43,17 +43,15 @@ function getAccessToken(){
     token.onload=function(){
         if(token.status===200){
             AccessObj=JSON.parse(token.responseText);
-            acc_token=AccessObj["access_token"];
-            sessionStorage.setItem("access_token",acc_token);
+            AccessToken=AccessObj["access_token"];
+            sessionStorage.setItem("access_token",AccessToken);
             console.log(sessionStorage.getItem("access_token"));
+            console.log(getUserID(AccessToken));
         }
         else if(token.status===404){
             console.log("No Records Found");
         }
-    }
-
-    console.log(getUserID(acc_token));
-    
+    } 
 }
 
 
