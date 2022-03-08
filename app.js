@@ -16,7 +16,7 @@ function getUserID(acc_token){
     userID.onload=function(){
         if(userID.status===200){
             USERObj=JSON.parse(userID.responseText);
-            console.log(USERObj);
+            return USERObj;
         }
         else if(userID.status===404){
             console.log("No Records Found");
@@ -44,7 +44,8 @@ function getAccessToken(){
             AccessToken=AccessObj["access_token"];
             sessionStorage.setItem("access_token",AccessToken);
             console.log(sessionStorage.getItem("access_token"));
-            console.log(getUserID(AccessToken));
+            UserID=getUserID(AccessToken);
+            console.log(UserID);
         }
         else if(token.status===404){
             console.log("No Records Found");
