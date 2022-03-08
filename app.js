@@ -25,11 +25,6 @@ function getUserID(acc_token){
             console.log("No Records Found");
         }
     }
-    
-    return userID;
-    
-
-    
 }
 
 
@@ -49,6 +44,8 @@ function getAccessToken(){
             AccessToken=AccessObj["access_token"];
             sessionStorage.setItem("access_token",AccessToken);
             console.log("Access Token:"+sessionStorage.getItem("access_token"));
+            getUserID(sessionStorage.getItem("access_token"));
+            console.log("User ID: "+sessionStorage.getItem("UserID"));
             
         }
         else if(token.status===404){
