@@ -29,7 +29,7 @@ function getUserID(acc_token){
     
 }
 
-
+acc_token=""
 //This function needs to be in the server side code
 function getAccessToken(){
     notCode=window.location.href;
@@ -43,8 +43,8 @@ function getAccessToken(){
     token.onload=function(){
         if(token.status===200){
             AccessObj=JSON.parse(token.responseText);
-            AccessToken=AccessObj["access_token"];
-            sessionStorage.setItem("access_token",AccessToken);
+            acc_token=AccessObj["access_token"];
+            sessionStorage.setItem("access_token",acc_token);
             console.log(sessionStorage.getItem("access_token"));
         }
         else if(token.status===404){
@@ -52,7 +52,7 @@ function getAccessToken(){
         }
     }
 
-    console.log(sessionStorage.getItem("access_token"));
+    console.log(getUserID(acc_token));
     
 }
 
