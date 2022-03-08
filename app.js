@@ -52,7 +52,7 @@ function getAccessToken(){
         }
     }
 
-    console.log(getUserID(AccessToken));
+    console.log(getUserID(sessionStorage.getItem("access_token")));
     
 }
 
