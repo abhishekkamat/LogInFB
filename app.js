@@ -18,7 +18,7 @@ function getUserID(acc_token){
             USERObj=JSON.parse(userID.responseText);
             UserID=USERObj.id;
             sessionStorage.setItem("UserID",UserID);
-            console.log(sessionStorage.getItem("UserID"));
+           
         }
         else if(userID.status===404){
             console.log("No Records Found");
@@ -47,9 +47,8 @@ function getAccessToken(){
             AccessObj=JSON.parse(token.responseText);
             AccessToken=AccessObj["access_token"];
             sessionStorage.setItem("access_token",AccessToken);
-            console.log(sessionStorage.getItem("access_token"));
-            UserID=getUserID(AccessToken);
-            console.log(UserID);
+            console.log("Access Token:"+sessionStorage.getItem("access_token"));
+            console.log("User ID:"+sessionStorage.getItem("UserID"));
         }
         else if(token.status===404){
             console.log("No Records Found");
